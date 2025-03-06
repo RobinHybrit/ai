@@ -1,0 +1,19 @@
+services:
+  ollama:
+    image: ollama/ollama:latest
+    environment:
+      - OLLAMA_HOST=0.0.0.0
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama:/root/.ollama
+
+  development:
+    image: nixos/nix
+    entrypoint: ["nix-shell", "/app/shell.nix"]
+    working_dir: "/app/workspace/"
+    volumes:
+      - "./:/app"
+
+volumes:
+  ollama:
