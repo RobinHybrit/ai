@@ -5,14 +5,14 @@ Welkom 🦙 🐳
 ## 0. Agenda voor AI
 
 1. Bestanden
-2. LLama en DeepSeek
-3. Ollama en Docker
-4. Hardware acceleration
-5. Endor en AI
-6. Endor architectuur
+2. Endor en AI
+3. Endor architectuur
+4. LLama en DeepSeek
+5. Ollama en Docker
+6. Hardware acceleration
 7. Retrieval Argumentation Generation (RAG)
 8. Terminology
-9. LangChain en tools
+9. LangChain
 10. Vraagstukken
 11. Speeltijd
 
@@ -30,14 +30,26 @@ Bestanden:
 git clone https://github.com/robinHybrit/ai
 ```
 
-## 2. LLama en DeepSeek
+## 2. Endor en AI
 
+- Contracten (ContractIQ)
+- Chatbot
+- Micro services
+- Dotnet
+
+## 3. Endor architectuur
+
+[./endor-design.png]
+
+## 4. LLama en DeepSeek
+
+- Large language models
 - LLama - Meta (Facebook)
 - DeepSeek - China
 - Allebei offline
 - Ollama voor Docker
 
-## 3. Ollama en Docker
+## 5. Ollama en Docker
 
 Te gebruiken op de Dagobah server OF via Docker:
 
@@ -59,7 +71,7 @@ docker compose exec -it ollama ollama run llama3.2
 docker compose down -v ollama
 ```
 
-## 4. Hardware acceleration
+## 6. Hardware acceleration
 
 1. Docker installeren
 2. NVIDIA Container Toolkit
@@ -88,22 +100,18 @@ services:
               capabilities: [gpu]
 ```
 
-## 5. Endor en AI
-
-- Contracten (ContractIQ)
-- Chatbot
-- Dotnet
-- Micro services
-
-## 6. Endor architectuur
-
-[./endor-design.png]
-
 ## 7. Terminology
+
+- System prompt
+- Embeddings
+- Retrieval Argumentation Generation (RAG)
+- Fine-tuning
+- Reasoning loop
 
 ## 8. Retrieval Argumentation Generation (RAG)
 
 - Documenten
+- Embeddings
 - Vectorizing
 - Searching
 - Database
@@ -111,11 +119,24 @@ services:
   - Redis
   - etc.
 
-## 9. LangChain en tools
+## 9. LangChain
 
 - Python
 - System prompt
 - Tools
+
+```python
+from langchain_ollama import ChatOllama
+
+llm = ChatOllama(
+    base_url="http://192.168.1.21:11434",
+    model="llama3.2",
+    temperature=0,
+)
+
+result = llm.invoke("Test")
+print(result.content)
+```
 
 ## 10. Vraagstukken
 

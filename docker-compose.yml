@@ -12,6 +12,7 @@ services:
     image: nixos/nix
     entrypoint: ["nix-shell", "/app/shell.nix"]
     working_dir: "/app/workspace/"
+    network_mode: host
     volumes:
       - "./:/app"
 
