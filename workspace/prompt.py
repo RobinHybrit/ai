@@ -1,7 +1,7 @@
 from langchain_ollama import ChatOllama
 
 llm = ChatOllama(
-    base_url="http://localhost:11434",
+    base_url="http://192.168.1.21:11434",
     model="llama3.2",
     temperature=0,
 )

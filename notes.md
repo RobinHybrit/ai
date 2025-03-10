@@ -49,7 +49,7 @@ flowchart LR
     
 ```
 
-## 4. LLama en DeepSeek
+## 3. LLama en DeepSeek
 
 Er zijn heel veel modellen beschikbaar tegenwoordig zoals Gemini of CoPilot.
 Deze modellen zijn alleen allemaal via een API te gebruiken en zijn dus niet offline.
@@ -69,7 +69,7 @@ Met behulp van Ollama kunnen wij deze models eenvoudig in Docker gebruiken.
 
 Voor Endor heb ik nu alleen nog maar LLama gebruikt.
 
-## 5. Docker
+## 4. Ollama en Docker
 
 Hoe gebruiken wij vervolgens de offline models?
 Dit kan het makkelijkste via Docker.
@@ -85,7 +85,7 @@ Het Lamma 3.2 model is iets van 2 gig waardoor hij niet zo groot it.
 Hij is ook via de Dagobah server te gebruiken.
 
 
-## 6. Hardware acceleration
+## 5. Hardware acceleration
 
 De modellen draaien het beste op de grafische kaart met hardware acceleration.
 Hiervoor moeten wij eerst de NVidia container toolkit downloade.
@@ -95,7 +95,7 @@ Hiervoor moeten wij eerst de NVidia container toolkit downloade.
 Hierna moeten wij in de docker compose de GPU koppelen.
 Nu kan Ollama de Nvidia kaart gebruiken.
 
-## 7. Terminology
+## 6. Terminology
 
 Dan vervolgens wat terminology voor chatbots.
 
@@ -119,15 +119,33 @@ en bijvoorbeeld geen kennis van JavaScript heeft.
 Dit is een process wat dagen lang op de GPU uitgevoerd moet worden.
 Hierdoor heb ik hier nog niet naar gekeken.
 
-## 8. Retrieval Argumentation Generation (RAG)
+## 7. Retrieval Argumentation Generation (RAG)
+
+Een bruikbare chatbot heeft ook toegang tot data die hij kan gebruiken om je verder te helpen.
+Dit is vaak actuele data, zoals de contracten voor Endor.
+Deze contracten kunnen constant veranderen.
+Hierdoor kunnen wij het model niet fine-tunen doordat de contracten misschien al veranderd zijn
+voordat het model getrained is.
+Hiervoor kan retrieval argumentation generation, of te wel rag, gebruikt worden.
+Dit is een soort van kortetermijngeheugen voor een llm.
+We zetten documenten om in embeddings waarop wij vervolgens kunnen zoeken.
+Hierop voeren wij een correlatie algoritme op los om de documenten op te halen die het
+beste bij de prompt passen.
+
+Deze embeddings kunnen wij in een vector database opslaan.
+Dit zorgt er voor dat wij heel snel en actueel de documenten kunnen ophalen.
+Dus wanneer bijvoorbeeld een contract aanpast kan de database meteen bijgewerkt worden.
+Hiermee heb je dus altijd actuele data.
+Om deze data op te slaan kan je bijvoorbeeld Postgres met een plugin of Redis gebruiken.
 
 ## 9. LangChain
 
 Er zijn veel verschillende frameworks en libraries om models te gebruiken.
 Een daarvan is LangChain voor Python.
 Het is een framework waarmee je bijvoorbeeld een chatbot op kan zetten.
+Dit is een uitgebreid framework met packages voor bijvoorbeeld Ollama, Redis en Google searches.
 
-## 10. Vraagstukken
+## 9. Vraagstukken
 
 Ik ben bezig met het verbeteren van de chatbot.
 De system prompt moet constant aangepast worden om een beter resultaat te krijgen.
@@ -136,7 +154,7 @@ Ook wil ik graag een reasoning loop toevoegen.
 De vector database zoekt niet op de eind datum.
 Hiervoor moet een query als "Welke contracten lopen af?" omgezet worden naar een bruikbare vraag.
 
-## 11. Speeltijd
+## 10. Speeltijd
 
 Nu hebben jullie een beetje een idee hoe wij AI gebruiken en willen gebruiken in Endor.
 Nu hebben wij tijd om hierover te praten en eventueel een beetje met LangChain te spelen.
