@@ -8,7 +8,7 @@ model = "llama3.2"
 # Setup of Vector store
 config = RedisConfig(
     index_name="index",
-    redis_url="redis://redis:6379",
+    redis_url="redis://localhost:6379",
 )
 
 embeddings = OllamaEmbeddings(

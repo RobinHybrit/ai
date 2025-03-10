@@ -123,7 +123,7 @@ Map
 
 ```json
 {
-    "model": "nomic-embed-text",
+    "model": "llama3.2",
     "embeddings": [ [-0.006212715, 0.012989915, -0.17035888, ... ] ]
 }
 ```
