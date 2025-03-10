@@ -19,7 +19,7 @@ services:
       - "./:/app"
 
   redis:
-    image: redis/redis-stack
+    image: redis/redis-stack:latest
     ports:
       - "6379:6379"
 
