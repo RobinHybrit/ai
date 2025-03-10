@@ -109,7 +109,7 @@ Hierop kan je vervolgens een correlatie algoritme op los laten.
 Zo kan je de tekst vinden die het meeste correlatie tot een bepaalde prompt heeft.
 Dit gebruikt Google ook voor zijn zoek resultaten om zo de beste resultaten te geven.
 
-Retrieval argument generation combineert vervolgens deze embeddings.
+Retrieval-augmented Generation combineert vervolgens deze embeddings.
 Hiermee kan je documenten inladen, omzetten in embeddings en vervolgens een correlatie search op uitvoeren.
 Hierna krijg je documenten terug die je in je system prompt kan gebruiken.
 
@@ -119,14 +119,14 @@ en bijvoorbeeld geen kennis van JavaScript heeft.
 Dit is een process wat dagen lang op de GPU uitgevoerd moet worden.
 Hierdoor heb ik hier nog niet naar gekeken.
 
-## 7. Retrieval Argumentation Generation (RAG)
+## 7. Retrieval-augmented Generation (RAG)
 
 Een bruikbare chatbot heeft ook toegang tot data die hij kan gebruiken om je verder te helpen.
 Dit is vaak actuele data, zoals de contracten voor Endor.
 Deze contracten kunnen constant veranderen.
 Hierdoor kunnen wij het model niet fine-tunen doordat de contracten misschien al veranderd zijn
 voordat het model getrained is.
-Hiervoor kan retrieval argumentation generation, of te wel rag, gebruikt worden.
+Hiervoor kan Retrieval-augmented Generation, of te wel rag, gebruikt worden.
 Dit is een soort van kortetermijngeheugen voor een llm.
 We zetten documenten om in embeddings waarop wij vervolgens kunnen zoeken.
 Hierop voeren wij een correlatie algoritme op los om de documenten op te halen die het
